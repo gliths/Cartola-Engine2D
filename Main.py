@@ -7,17 +7,6 @@ def MultThread(func):
     def wrapper():
         Thread(target=func).start()
     return wrapper
-    
-
-
-@MultThread
-def ain():
-    a = 0
-    while game.running:
-        print(a)
-        a = a + 1
-
-ain()
 
 if __name__  == "__main__":
 
