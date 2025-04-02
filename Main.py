@@ -1,23 +1,19 @@
-from CFW import *
-import sys
-
+from Components import *
+from threading import *
 
 game = Game("Borrachinha")
 
-
-
-
-def Paralelo(func):
+def MultThread(func):
     def wrapper():
         Thread(target=func).start()
     return wrapper
     
 
 
-@Paralelo
+@MultThread
 def ain():
     a = 0
-    while True:
+    while game.running:
         print(a)
         a = a + 1
 
