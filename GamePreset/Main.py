@@ -7,6 +7,21 @@ def MultThread(func):
     def wrapper():
         Thread(target=func).start()
     return wrapper
+<<<<<<< Updated upstream:GamePreset/Main.py
+=======
+    
+
+
+@MultThread
+def ain():
+    a = 0
+    while game.running:
+        Delay(200)
+        print(a)
+        a = a + 1
+
+ain()
+>>>>>>> Stashed changes:Main.py
 
 if __name__  == "__main__":
 
