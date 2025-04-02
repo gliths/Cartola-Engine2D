@@ -57,7 +57,7 @@ class GameObject(sdl2.ext.Entity):
     """
         Objeto renderizado na cena/world
     """
-    def __init__(self, world, sprite, position=(0,0),parent = "world"):
+    def __init__(self, world, position=(0,0),parent = "world",sprite = sdl2.ext.SpriteFactory(sdl2.ext.SOFTWARE).from_color(Color4(255,255,255), Vector2(0,0).tuple())):
         
         self.sprite = sprite
         self.sprite.position = position
@@ -118,6 +118,15 @@ class Game():
         #Iniciando a e mostrando Janela na tela
         window = sdl2.ext.Window(name, WindowSize.tuple(), flags=sdl2.SDL_WINDOW_RESIZABLE)
         window.show()
+
+        icon = sdl2.SDL_LoadBMP(b"icon.bmp")
+
+        if icon:
+            # Define o ícone da janela
+            sdl2.SDL_SetWindowIcon(window, icon)
+            # Libera a memória do ícone após definir
+            sdl2.SDL_FreeSurface(icon)
+        
 
         if fullscreen:
             window.maximize()
